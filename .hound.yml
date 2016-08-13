@@ -1,10 +1,10 @@
 scss:
   enabled: false
-
 ruby:
   config_file: .rubocop.yml
-
-jshint:
-  ignore_file: .jshintignore
-
 fail_on_violations: true
+StringLiterals:
+  Enabled: false
+LineLength:
+  Description: 'Limit lines to 120 characters.'
+  Max: 120
