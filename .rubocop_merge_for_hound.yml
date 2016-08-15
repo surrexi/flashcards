@@ -1,0 +1,19 @@
+AllCops:
+  Rails:
+    Enable: true
+  Exclude:
+    - db/schema.rb
+    - Gemfile
+    - Rakefile
+
+Metrics/LineLength:
+  Max: 130
+
+Style/NumericLiterals:
+  MinDigits: 15
+
+Style/Documentation:
+  Enabled: false
+
+StringLiterals:
+  Enabled: false
