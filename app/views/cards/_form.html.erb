@@ -1,0 +1,10 @@
+<%= simple_form_for @card do |f| %>
+
+  <%= f.error_notification %>
+
+  <%= f.input :original_text, placeholder: 'Enter text' %>
+  <%= f.input :translated_text, placeholder: 'Enter text' %>
+
+  <%= f.button :submit %>
+
+<% end %>

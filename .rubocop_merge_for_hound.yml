@@ -17,3 +17,6 @@ Style/Documentation:
 
 StringLiterals:
   Enabled: false
+
+Style/AlignHash:
+  Enabled: false
