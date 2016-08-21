@@ -1,14 +1,14 @@
 class Card < ApplicationRecord
-  validates :original_text, :translated_text, :review_date, presence: true
+  validates :original_text, :translated_text, presence: true
   validate :different_original_and_translated_text, on: [:create, :update]
 
   def different_original_and_translated_text
     if original_text.strip.casecmp(translated_text.strip).zero?
-      errors.add(:translated_text, "can't original_text eq translated_text")
+      errors.add(:translated_text, 'original and translated text must be different')
     end
   end
 
-  before_validation do
-    self.review_date = Date.today.next_day(3)
+  before_create do
+    self.review_date = 3.days.from_now
   end
 end
