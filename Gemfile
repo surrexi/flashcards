@@ -28,6 +28,8 @@ gem 'jbuilder', '~> 2.5'
 # gem 'capistrano-rails', group: :development
 # See https://github.com/plataformatec/simple_form
 gem 'simple_form'
+# See https://www.nokogiri.org
+gem 'nokogiri'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

@@ -1,7 +1,9 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
+Card.destroy_all
+
+# Filling a table Card with site (url)
+url = 'http://alltop10.org/100-krasivyih-slov-na-angliyskom-s-proiznosheniem/'
+Nokogiri::HTML(open(url)).css('table tbody tr').collect do |row|
+  original_text = row.at('td[1]').text.strip
+  translated_text = row.at('td[3]').text.strip
+  Card.create(original_text: original_text, translated_text: translated_text)
+end
