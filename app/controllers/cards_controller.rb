@@ -3,6 +3,8 @@ class CardsController < ApplicationController
 
   def index
     @cards = Card.all
+    @card = rand_record
+    flash[:notice] = nil
   end
 
   def show
@@ -37,6 +39,18 @@ class CardsController < ApplicationController
     redirect_to cards_path
   end
 
+  def repeat
+    @cards = Card.all
+    @card = find_card
+    if @card.equal_origin_text?(card_params[:original_text])
+      @card.update_review_date
+      redirect_to cards_path
+    else
+      flash[:notice] = 'Wrong original text'
+      render :index
+    end
+  end
+
   private
 
   def card_params
@@ -45,5 +59,11 @@ class CardsController < ApplicationController
 
   def find_card
     @card = Card.find(params[:id])
+  end
+
+  def rand_record
+    cards_for_repeating = Card.expired_date
+    offset = rand(cards_for_repeating.count)
+    cards_for_repeating.offset(offset).first
   end
 end

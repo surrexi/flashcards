@@ -1,0 +1,6 @@
+<%= simple_form_for :card, url: repeat_card_path(@card), method: :get do |f| %>
+  <%= f.label @card.translated_text, required: false, as: :text %>
+  <%= f.input_field :original_text, required: false %>
+  <%= flash[:notice] %>
+  <%= f.button :submit, 'Check card' %>
+<% end %>
