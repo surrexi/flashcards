@@ -20,4 +20,8 @@ class Card < ApplicationRecord
   def update_review_date
     update(review_date: 3.days.from_now)
   end
+
+  def self.rand_card
+    expired_date.order('RANDOM()').first
+  end
 end

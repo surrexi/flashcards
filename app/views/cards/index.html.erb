@@ -1,4 +1,4 @@
-<% unless @card.nil? %>
+<% if @card %>
   <div class="row">
     <%= render partial: 'form_for_repeat', layout: 'tb_label', locals: { title: "Let's repeat card" }
     %>
