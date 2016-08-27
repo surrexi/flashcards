@@ -1,7 +1,7 @@
 class Card < ApplicationRecord
   validates :original_text, :translated_text, presence: true
   validate :different_original_and_translated_text, on: [:create, :update]
-  scope :expired_date, -> { where('review_date <= ?', 5.days.from_now) }
+  scope :expired_date, -> { where('review_date <= ?', 1.days.from_now) }
 
   def different_original_and_translated_text
     if original_text.strip.casecmp(translated_text.strip).zero?

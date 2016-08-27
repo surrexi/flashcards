@@ -3,7 +3,6 @@ class CardsController < ApplicationController
 
   def index
     @cards = Card.all
-    @card = Card.rand_card
   end
 
   def show
@@ -44,7 +43,7 @@ class CardsController < ApplicationController
     else
       flash[:notice] = 'Wrong!'
     end
-    redirect_to cards_path
+    redirect_to root_path
   end
 
   private

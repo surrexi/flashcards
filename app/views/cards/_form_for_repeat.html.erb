@@ -1,4 +1,4 @@
-<%= simple_form_for :card, url: { action: 'check_card' } do |f| %>
+<%= simple_form_for :card, url: { action: 'check_card', controller: 'cards' } do |f| %>
   <%= f.label @card.translated_text, required: false, as: :text %>
   <%= f.input_field :original_text, required: false %>
   <% if flash[:notice] %>
