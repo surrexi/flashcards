@@ -1,12 +1,12 @@
 class CardsController < ApplicationController
-  before_action :find_card, only: [:edit, :update, :destroy, :show]
+  before_action :find_card, only: [:edit, :update, :destroy, :show, :check_card]
 
   def index
     @cards = Card.all
   end
 
   def show
-    render 'edit'
+    render :edit
   end
 
   def new
@@ -19,7 +19,7 @@ class CardsController < ApplicationController
     if @card.save
       redirect_to cards_path
     else
-      render 'new'
+      render :new
     end
   end
 
@@ -27,14 +27,23 @@ class CardsController < ApplicationController
     if @card.update(card_params)
       redirect_to cards_path
     else
-      render 'edit'
+      render :edit
     end
   end
 
   def destroy
     @card.destroy
-
     redirect_to cards_path
+  end
+
+  def check_card
+    if @card.equal_origin_text?(card_params[:original_text])
+      @card.update_review_date
+      flash[:notice] = 'Excellent!'
+    else
+      flash[:notice] = 'Wrong!'
+    end
+    redirect_to root_path
   end
 
   private
