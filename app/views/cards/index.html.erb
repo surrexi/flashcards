@@ -1,32 +1,28 @@
-<% if @card %>
-  <div class="row">
-    <%= render partial: 'form_for_repeat', layout: 'tb_label', locals: { title: "Let's repeat card" }
-    %>
-  </div>
-<% end %>
-<h3>List flashcards:</h3>
-<table class="table table-hover">
-  <thead>
-    <tr>
-      <th>Original</th>
-      <th>Translate</th>
-      <th>Review date</th>
-      <th colspan="2"></th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @cards.each do |card| %>
-      <tr>
-        <td><%= card.original_text %></td>
-        <td><%= card.translated_text %></td>
-        <td><%= card.review_date.strftime('%d/%m/%Y') unless card.review_date.nil? %></td>
-        <td><%= link_to 'Edit', edit_card_path(card) %></td>
-        <td>
-          <%= link_to 'Delete', card_path(card),
-            method: :delete,
-            data: { confirm: 'Are you sure?' } %>
-        </td>
+<div class="panel panel-primary">
+  <div class="panel-heading"><h4>List flashcards:</h4></div>
+  <table class="table table-hover table-bordered">
+    <thead>
+      <tr class='info'>
+        <th>Original</th>
+        <th>Translate</th>
+        <th>Review date</th>
+        <th colspan="2"></th>
       </tr>
-    <% end %>
-  </tbody>
-</table>
+    </thead>
+    <tbody>
+      <% @cards.each do |card| %>
+        <tr>
+          <td><%= card.original_text %></td>
+          <td><%= card.translated_text %></td>
+          <td><%= card.review_date.strftime('%d/%m/%Y') unless card.review_date.nil? %></td>
+          <td align="center"><%= link_to 'Edit', edit_card_path(card) %></td>
+          <td align="center">
+            <%= link_to 'Delete', card_path(card),
+              method: :delete,
+              data: { confirm: 'Are you sure?' } %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>

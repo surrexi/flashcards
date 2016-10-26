@@ -4,17 +4,15 @@ class Card < ApplicationRecord
   scope :expired_date, -> { where('review_date <= ?', 1.days.from_now) }
 
   def different_original_and_translated_text
-    if original_text.strip.casecmp(translated_text.strip).zero?
-      errors.add(:translated_text, 'original and translated text must be different')
-    end
+    errors.add(:translated_text, 'original and translated text must be different') if check_translate?(translated_text)
   end
 
   before_create do
     self.review_date = 3.days.from_now
   end
 
-  def equal_origin_text?(text)
-    original_text.eql?(text)
+  def check_translate?(text)
+    original_text.strip.casecmp(text.strip).zero?
   end
 
   def update_review_date

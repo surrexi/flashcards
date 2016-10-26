@@ -1,9 +1,7 @@
-<p>
-  Первый в мире удобный менеджер флеш-карточек. Именно так.
-</p>
 <% if @card %>
   <div class="row">
-    <%= render partial: 'cards/form_for_repeat', layout: 'cards/tb_label', locals: { title: "Let's repeat card" }
-    %>
+    <div class="col-md-8 col-md-offset-2">
+      <%= render partial: 'cards/form_for_repeat', layout: 'cards/tb_label', locals: { title: "Let's repeat card" } %>
+    </div>
   </div>
 <% end %>
