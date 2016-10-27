@@ -1,10 +1,12 @@
-<%= simple_form_for @card do |f| %>
+<%= simple_form_for @card, as: :card, html: { class: 'form-horizontal' },
+    wrapper: :horizontal_form do |f| %>
 
   <%= f.error_notification %>
 
   <%= f.input :original_text, placeholder: 'Enter text' %>
   <%= f.input :translated_text, placeholder: 'Enter text' %>
-
-  <%= f.button :submit %>
+  <div align="right">
+    <%= f.button :submit %>
+  </div>
 
 <% end %>

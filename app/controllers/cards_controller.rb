@@ -37,11 +37,11 @@ class CardsController < ApplicationController
   end
 
   def check_card
-    if @card.equal_origin_text?(card_params[:original_text])
+    if @card.check_translate?(card_params[:original_text])
       @card.update_review_date
-      flash[:notice] = 'Excellent!'
+      flash[:notice] = 'Correctly!'
     else
-      flash[:notice] = 'Wrong!'
+      flash[:error] = "Wrong! Correct answer: '#{@card.original_text}'. Try again."
     end
     redirect_to root_path
   end
