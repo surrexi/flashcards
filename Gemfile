@@ -33,6 +33,8 @@ group :test do
   gem 'rspec-rails'
   # See https://github.com/thoughtbot/factory_girl_rails
   gem 'factory_girl_rails'
+  # See https://github.com/jnicklas/capybara#using-capybara-with-rspec
+  gem 'capybara'
 end
 
 group :development do
