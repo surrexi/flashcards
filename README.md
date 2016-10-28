@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/surrexi/flashcards.svg?branch=master)](https://travis-ci.org/surrexi/flashcards)
+===
 Flashcards - manager flash cards
 ====
 
