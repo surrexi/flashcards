@@ -2,7 +2,8 @@ require 'rails_helper'
 
 describe Card do
   describe '.equal_origin_text?' do
-    card = Card.create!(original_text: 'hello', translated_text: 'привет')
+    let!(:card) { create :card }
+
     it 'correct origin text (1)' do
       expect(card.check_translate?('hello')).to be true
     end

@@ -1,8 +1,8 @@
 require 'rails_helper'
 
 describe 'Work with cards,', type: :feature do
-  let!(:card) { create(:card) }
-  let!(:card2) { create(:card) }
+  let!(:card) { create :card }
+  let!(:card2) { create :card }
 
   context 'check cards:' do
     before(:each) do

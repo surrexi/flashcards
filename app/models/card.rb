@@ -3,6 +3,8 @@ class Card < ApplicationRecord
   validate :different_original_and_translated_text, on: [:create, :update]
   scope :expired_date, -> { where('review_date <= ?', 1.days.from_now) }
 
+  belongs_to :user
+
   def different_original_and_translated_text
     errors.add(:translated_text, 'original and translated text must be different') if check_translate?(translated_text)
   end

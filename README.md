@@ -1,8 +1,7 @@
-[![Build Status](https://travis-ci.org/surrexi/flashcards.svg?branch=master)](https://travis-ci.org/surrexi/flashcards)
-===
 Flashcards - manager flash cards
 ====
-
+[![Build Status](https://travis-ci.org/surrexi/flashcards.svg?branch=master)](https://travis-ci.org/surrexi/flashcards)
+===
 ### This is app for educational purposes
 ## Setup
 
